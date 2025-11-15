@@ -1,117 +1,55 @@
-README — Bees Algorithm for 0–1 (Multi) Knapsack
+# 🐝 Bees Algorithm – 0/1 Multiple Knapsack Problem
 
-This project implements the Bees Algorithm (BA) to solve the 0–1 knapsack and multidimensional knapsack problems using benchmark datasets from the OR-Library and Pisinger’s Hard Instances.
+## 1. Overview
 
-1. Folder Structure
-Problem3.ipynb
-data/
- ├── OR-Library/
- │     └── mknap2.txt
- └── PisingerHard/
-       └── knapPI_11_50_1000.csv
+This project implements the **Bees Algorithm (BA)** to solve the **0–1 Multiple Knapsack Problem (MKP)** with:
 
-2. Required Python Packages
+- Scout bees for global exploration  
+- Elite and selected sites for local search  
+- Shrinking neighborhoods  
+- Stagnation-based site abandonment  
+- A **repair operator** to enforce feasibility  
+- A **greedy baseline heuristic** for comparison  
+
+The implementation runs the algorithm on **OR-Library** MKP instances and one **Pisinger** “hard” instance, and produces:
+
+- Convergence plots (iteration vs best value)  
+- Statistics over 10 runs per instance  
+- Summary table with baseline comparison  
+
+---
+
+## 2. Instances Used
+
+### Smallest Instances (fewest objects)
+- `WEING3.DAT`: 2 knapsacks, 28 objects  
+- `WEING4.DAT`: 2 knapsacks, 28 objects  
+
+### Medium Instances (middle range)
+- `WEISH14.DAT`: 5 knapsacks, 50 objects  
+- `WEISH16.DAT`: 5 knapsacks, 50 objects  
+
+### Largest Instances (most objects)
+- `WEISH28.DAT`: 5 knapsacks, 100 objects  
+- `WEISH29.DAT`: 5 knapsacks, 100 objects  
+
+### Pisinger “hard” instance
+- `knapPI_11_50_1000_21` (from `knapPI_11_50_1000.csv`)
+
+These are all loaded and run inside the notebook.
+
+---
+
+## 3. Requirements
+
+### 3.1 Software
+
+- Python **3.9+** (3.10/3.11 also fine)  
+- Jupyter Notebook / JupyterLab / VS Code with Jupyter extension  
+
+### 3.2 Python packages
+
+Install required libraries:
+
+```bash
 pip install numpy pandas matplotlib
-
-3. Instances Used
-Small Instances
-
-WEING3 — 2 knapsacks, 28 items
-
-WEING4 — 2 knapsacks, 28 items
-
-Medium Instances
-
-WEISH08 — 5 knapsacks, 40 items
-
-WEISH09 — 5 knapsacks, 40 items
-
-Large Instances
-
-WEISH27 — 5 knapsacks, 90 items
-
-WEISH28 — 5 knapsacks, 90 items
-
-Pisinger Hard Instance
-
-knapPI_11_50_1000_21 — 1 knapsack, 50 items
-
-4. How to Run
-
-Open the notebook:
-
-jupyter notebook
-
-
-Then open Problem3.ipynb and run all cells:
-
-Run > Run All Cells
-
-
-The notebook automatically:
-
-Loads all 7 instances
-
-Runs BA 10 times per instance
-
-Runs greedy baseline
-
-Generates tables, statistics, and plots
-
-5. Running BA on a Single Instance
-Example (OR-Library):
-loader = DataLoader()
-instance = loader.load_or_library(
-    "data/OR-Library/mknap2.txt",
-    ["WEISH27"]
-)[0]
-
-ba = BeesAlgorithmStandard(instance, random_seed=0)
-solution, value, stats = ba.optimize()
-print(value)
-
-Example (Pisinger):
-loader = DataLoader()
-instance = loader.load_pisinger(
-    "data/PisingerHard/knapPI_11_50_1000.csv",
-    "knapPI_11_50_1000_21"
-)
-
-ba = BeesAlgorithmStandard(instance, random_seed=0)
-solution, value, stats = ba.optimize()
-print(value)
-
-6. Output Produced
-
-Results table with:
-instance, n, W, best value, weight used, baseline, improvement %, runtime, iteration to best, population fitness
-
-Statistics of best values over 10 runs
-
-Convergence plots
-
-Sensitivity analysis plots
-
-7. Reproducibility
-
-Uses random seeds 0–9
-
-All instance IDs clearly listed
-
-Repair function ensures feasible solutions
-
-8. Summary
-
-This project includes:
-
-BA solver with repair
-
-Baseline greedy heuristic
-
-Required tables and plots
-
-Six OR-Library instances + one Pisinger instance
-
-Sensitivity analysis
-
-Full reproducibility
