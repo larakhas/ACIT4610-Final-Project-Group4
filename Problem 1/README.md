@@ -66,7 +66,9 @@ The notebook can be started in two ways:
 
         problem1.ipynb
 
-3. Run the notebook.
+3. Run all cells.
+4. The tables will generate and show in the bottom of the file.
+5. The plots will generate and be saved under plots/1D and plots/2D folders.
 
 ---
 
@@ -77,7 +79,7 @@ Run the notebook using:
 ```bash
 jupyter notebook problem1.ipynb
 
-
+```
 ## Output
 
 The notebook automatically generates:
