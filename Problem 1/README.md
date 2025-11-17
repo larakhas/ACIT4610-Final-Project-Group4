@@ -1,6 +1,6 @@
-# Problem 1 – Ant Colony Optimization for 1D Bin Packing
+# Problem 1 – Ant Colony Optimization for Bin Packing
 
-This project contains a Jupyter Notebook that runs the ACO algorithm on 1D bin packing instances from OR-Library, as well as generates the necessary plots and result tables for the task.
+This project contains a Jupyter Notebook that runs the ACO algorithm on bin packing instances from OR-Library, as well as generates the necessary plots and result tables for the task.
 
 
 ## Folder structure
@@ -52,9 +52,8 @@ The notebook can be started in two ways:
 ```bash
 jupyter notebook
 Open:
-
-Kopier kode
 problem1.ipynb
+```
 Select Run All to run the entire notebook.
 
 2) Manually via the Jupyter interface
@@ -68,7 +67,7 @@ Run the notebook with the command:
 ``` bash
 jupyter notebook problem1.ipynb
 
-
+ 
 The notebook will automatically:
 
 read all binpack files under data/
