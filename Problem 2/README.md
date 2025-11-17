@@ -253,8 +253,8 @@ All fitness plots are shown on a **logarithmic scale** (log10) for clarity.
 
 ## How to Run
 
-1. Open `PSO.ipynb`.  
-2. Click **Run All** in Jupyter / VS Code / Google Colab.  
+1. Open `problem2.ipynb`.  
+2. Click **Run All** to execute all cells.  
 3. All experiments, statistics, and plots are generated automatically.
 
 ---
@@ -291,3 +291,4 @@ pip install numpy matplotlib pandas scipy
 
 ```bash
 pip install numpy matplotlib pandas scipy
+
