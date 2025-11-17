@@ -47,45 +47,43 @@ The notebook can be started in two ways:
 
 ---
 
-### 1) Start Jupyter Notebook:
+### 1) Open Jupyter Notebook
+
+1. Start Jupyter Notebook.
+2. Åpne filen **Problem 1/problem1.ipynb**.
+3. Kjør **Run All**.
+4. Resultattabellene vises nederst i notebooken.
+5. Plottene genereres automatisk og lagres i:
+   - `plots/1D/`
+   - `plots/2D/`
+
+---
+
+### 2) Manually via the Jupyter interface
+
+1. Åpne Jupyter.
+2. Naviger til filen:
+
+problem1.ipynb
+
+3. Kjør notebooken.
+
+---
+
+### Directly from the terminal
+
+Kjør notebooken med:
 
 ```bash
-jupyter notebook
-```
-Open:
-```bash 
-problem1.ipynb
-```
-Select Run All to run the entire notebook.
-
-2) Manually via the Jupyter interface
-Open Jupyter and navigate to the file:
-
-Kopier kode
-problem1.ipynb
-Directly from the terminal
-Run the notebook with the command:
-
-``` bash
 jupyter notebook problem1.ipynb
-```
- 
-The notebook will automatically:
 
-read all binpack files under data/
-
-run the ACO algorithm on each instance
-
-display result tables in the notebook
-
-save all plots in plots/1D/ and plots/2D/
 
 ## Output
 
 The notebook automatically generates:
 
-Convergence plots
+- Convergence plots
 
-Load distribution plots
+- Load distribution plots
 
-Result tables for all instances
+- Result tables for all instances
