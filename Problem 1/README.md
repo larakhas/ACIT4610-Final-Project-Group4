@@ -39,7 +39,7 @@ Problem 1/
 
 Install required libraries:
 
-pip install numpy matplotlib pandas jupyter
+pip install numpy pandas matplotlib jupyter os time
 
 ## Running the notebook
 
@@ -50,10 +50,10 @@ The notebook can be started in two ways:
 ### 1) Open Jupyter Notebook
 
 1. Start Jupyter Notebook.
-2. Åpne filen **Problem 1/problem1.ipynb**.
-3. Kjør **Run All**.
-4. Resultattabellene vises nederst i notebooken.
-5. Plottene genereres automatisk og lagres i:
+2. Open the file **Problem 1/problem1.ipynb**.
+3. Select **Run All**.
+4. The result tables will appear at the bottom of the notebook.
+5. All plots will be generated automatically and saved in:
    - `plots/1D/`
    - `plots/2D/`
 
@@ -61,18 +61,18 @@ The notebook can be started in two ways:
 
 ### 2) Manually via the Jupyter interface
 
-1. Åpne Jupyter.
-2. Naviger til filen:
+1. Open Jupyter.
+2. Navigate to the file:
 
-problem1.ipynb
+        problem1.ipynb
 
-3. Kjør notebooken.
+3. Run the notebook.
 
 ---
 
 ### Directly from the terminal
 
-Kjør notebooken med:
+Run the notebook using:
 
 ```bash
 jupyter notebook problem1.ipynb
