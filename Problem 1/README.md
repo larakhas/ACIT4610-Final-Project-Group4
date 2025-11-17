@@ -3,6 +3,9 @@
 This project contains a Jupyter Notebook that runs the ACO algorithm on 1D bin packing instances from OR-Library, as well as generates the necessary plots and result tables for the task.
 
 ## Folder structure
+## Folder structure
+
+```
 Problem 1/
 │
 ├── problem1.ipynb        # Notebook containing all code and experiments
@@ -19,6 +22,7 @@ Problem 1/
 │   └── 2D/
 │
 └── README.md             # Documentation for Problem 1
+```
 
 
 ## Requirements
