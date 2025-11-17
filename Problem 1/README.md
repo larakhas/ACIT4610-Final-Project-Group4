@@ -45,7 +45,7 @@ pip install numpy pandas matplotlib jupyter os time
 
 The notebook can be started in two ways:
 
----
+
 
 ### 1) Open Jupyter Notebook
 
@@ -57,7 +57,7 @@ The notebook can be started in two ways:
    - `plots/1D/`
    - `plots/2D/`
 
----
+--
 
 ### 2) Manually via the Jupyter interface
 
@@ -70,7 +70,7 @@ The notebook can be started in two ways:
 4. The tables will generate and show in the bottom of the file.
 5. The plots will generate and be saved under plots/1D and plots/2D folders.
 
----
+--
 
 ### Directly from the terminal
 
