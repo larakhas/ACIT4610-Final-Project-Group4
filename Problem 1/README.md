@@ -51,7 +51,9 @@ The notebook can be started in two ways:
 
 ```bash
 jupyter notebook
+```
 Open:
+```bash 
 problem1.ipynb
 ```
 Select Run All to run the entire notebook.
@@ -66,7 +68,7 @@ Run the notebook with the command:
 
 ``` bash
 jupyter notebook problem1.ipynb
-
+```
  
 The notebook will automatically:
 
