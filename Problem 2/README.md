@@ -76,9 +76,7 @@ Each configuration is run **30 independent times**.
 - Max evaluations: 30 000
 - Initial velocities: 10–20% of variable range
 - Velocity clamp:
- $$
-|v_i| \le 0.5(\text{upper}_i - \text{lower}_i)
-$$
+$$|v_i| \le 0.5(upper_i - lower_i)$$
 
 
 **Stopping conditions**
@@ -228,6 +226,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
