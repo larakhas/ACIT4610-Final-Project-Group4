@@ -9,63 +9,47 @@ This repository contains a full implementation of Particle Swarm Optimization (P
 - Statistical evaluation over 30 independent runs  
 ## Benchmark Functions
 
-### **1. Sphere Function (convex, easy)**
+**1. Sphere Function**
 
 $$
-f_{\text{Sphere}}(x) = \sum_{i=1}^{n} x_i^2
+f(x) = \sum_{i=1}^{n} x_i^2
 $$
 
-- *Global minimum:   \( x^\* = 0,\; f^\* = 0 \)
-- *Bounds:   \( x_i \in [-5.12,\; 5.12] \) 
+* Global minimum: x = 0, f(x) = 0
+* Bounds: $x_i \in$  [-5.12, 5.12]
 
----
 
-### **2. Rosenbrock Function (valley, nonconvex)**
-
-$$
-f_{\text{Rosen}}(x) =
-\sum_{i=1}^{n-1} \left[
-100(x_{i+1} - x_i^2)^2 + (1 - x_i)^2
-\right]
-$$
-
-- **Global minimum:** \( x^\* = 1,\; f^\* = 0 \)
-- **Bounds:** \( x_i \in [-5,\; 10] \)
-
----
-
-### **3. Rastrigin Function (multimodal, many local minima)**
+**2. Rosenbrock Function**
 
 $$
-f_{\text{Rast}}(x) =
-10n + \sum_{i=1}^{n} \left[
-x_i^2 - 10\cos(2\pi x_i)
-\right]
+f(x) = \sum_{i=1}^{n-1} [100(x_{i+1} - x_i^2)^2 + (x_i - 1)^2]
 $$
 
-- **Global minimum:** \( x^\* = 0,\; f^\* = 0 \)
-- **Bounds:** \( x_i \in [-5.12,\; 5.12] \)
+* Global minimum: x = 1, f(x) = 0
+* Bounds: $x_i \in$ [-5, 10]
 
----
 
-### **4. Ackley Function (multimodal, bowl-shaped)**
+**3. Rastrigin Function**
 
 $$
-f_{\text{Ack}}(x) =
--20 \exp\left(
-    -0.2 \sqrt{\frac{1}{n}\sum_{i=1}^{n} x_i^2}
-\right)
--
-\exp\left(
-    \frac{1}{n}\sum_{i=1}^{n}\cos(2\pi x_i)
-\right)
-+ 20 + e
+f(x) = 10n + \sum_{i=1}^{n} [x_i^2 - 10\cos(2\pi x_i)]
 $$
 
-- **Global minimum:** \( x^\* = 0,\; f^\* = 0 \)
-- **Bounds:** \( x_i \in [-32.768,\; 32.768] \)
+* Global minimum: x = 0, f(x) = 0
+* Bounds: $x_i \in$ [-5.12, 5.12]
 
----
+**4. Ackley Function**
+   $$
+   f(x) = -20 \exp\left(-0.2 \sqrt{\frac{1}{n}\sum_{i=1}^{n} x_i^2}\right)
+          - \exp\left(\frac{1}{n}\sum_{i=1}^{n}\cos(2\pi x_i)\right)
+          + 20 + e
+   $$
+
+* Global minimum: x = 0, f(x) = 0
+* Bounds: $x_i \in$ [-32.768, 32.768]
+
+
+**Dimensions tested: 2, 10 and 30.**
 
 ## Dimensions Tested
 
@@ -245,6 +229,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
