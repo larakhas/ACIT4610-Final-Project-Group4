@@ -39,11 +39,18 @@ $$
 * Bounds: $x_i \in$ [-5.12, 5.12]
 
 **4. Ackley Function**
-   $$
-   f(x) = -20 \exp\left(-0.2 \sqrt{\frac{1}{n}\sum_{i=1}^{n} x_i^2}\right)
-          - \exp\left(\frac{1}{n}\sum_{i=1}^{n}\cos(2\pi x_i)\right)
-          + 20 + e
-   $$
+  $$
+f(x) =
+-20 \exp\left(
+    -0.2 \sqrt{\frac{1}{n}\sum_{i=1}^{n} x_i^2}
+\right)
+-
+\exp\left(
+    \frac{1}{n}\sum_{i=1}^{n}\cos(2\pi x_i)
+\right)
++ 20 + e
+$$
+
 
 * Global minimum: x = 0, f(x) = 0
 * Bounds: $x_i \in$ [-32.768, 32.768]
@@ -226,6 +233,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
