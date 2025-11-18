@@ -48,9 +48,6 @@ $$
 * Global minimum: x = 0, f(x) = 0
 * Bounds: $x_i \in$ [-32.768, 32.768]
 
-
-**Dimensions tested: 2, 10 and 30.**
-
 ## Dimensions Tested
 
 Each function is evaluated in:
@@ -229,6 +226,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
