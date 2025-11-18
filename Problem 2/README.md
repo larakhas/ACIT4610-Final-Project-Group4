@@ -15,8 +15,8 @@ $$
 f_{\text{Sphere}}(x) = \sum_{i=1}^{n} x_i^2
 $$
 
-- **Global minimum:  $$ \( x^\* = 0,\; f^\* = 0 \)$$
-- **Bounds:  $$ \( x_i \in [-5.12,\; 5.12] \) $$
+- *Global minimum:   \( x^\* = 0,\; f^\* = 0 \)
+- *Bounds:   \( x_i \in [-5.12,\; 5.12] \) 
 
 ---
 
@@ -245,6 +245,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
