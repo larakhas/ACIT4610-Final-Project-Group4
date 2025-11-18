@@ -59,7 +59,7 @@ Each benchmark function is tested in three different dimensions:
 
 For every dimension, the experiment is repeated **30 independent times** to ensure reliable statistics.
 
----
+
 
 ## PSO Configuration (gbest)
 
@@ -87,7 +87,7 @@ $$|v_i| \le 0.5(upper_i - lower_i)$$
 
 All runs use fixed random seeds to ensure reproducibility.
 
----
+
 
 ## Local-Best PSO (lbest)
 
@@ -101,7 +101,7 @@ This variant uses a **ring topology**, where each particle considers:
 The same hyperparameters as gbest are used.  
 This setup makes it possible to study the balance between **exploration** (lbest) and **exploitation** (gbest).
 
----
+
 
 ## Hybrid PSO + Nelder–Mead
 
@@ -114,7 +114,7 @@ To improve solution accuracy, a hybrid approach is applied:
 
 This hybrid strategy is especially effective for difficult multimodal problems.
 
----
+
 
 ## Recorded Data
 
@@ -133,7 +133,7 @@ Across 30 runs, the following summary statistics are reported:
 - Standard deviation  
 - Success rate (relative to a target threshold)
 
----
+
 
 ## Parameter Study (w, c₁, c₂)
 
@@ -148,7 +148,7 @@ A parameter analysis is performed for \( n = 10 \), testing four settings:
 
 A summary DataFrame of these results is automatically generated.
 
----
+
 
 ## gbest vs lbest Comparison
 
@@ -164,7 +164,6 @@ In general:
 - **gbest** converges faster  
 - **lbest** is more robust on highly multimodal landscapes  
 
----
 
 ## Visualizations
 
@@ -174,9 +173,8 @@ The notebook produces several visual plots:
 - Boxplots for dimensions 2, 10, and 30  
 - Comparison before/after applying Nelder–Mead  
 
-All fitness plots are displayed on a **logarithmic scale** for clarity.
+All fitness plots are displayed on a logarithmic scale for clarity.
 
----
 
 ## How to Run
 
@@ -184,7 +182,7 @@ All fitness plots are displayed on a **logarithmic scale** for clarity.
 2. Click **Run All**  
 3. All experiments, statistics, and visualizations will be generated automatically  
 
----
+
 
 ## Requirements
 
@@ -215,6 +213,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
