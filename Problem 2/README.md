@@ -41,7 +41,7 @@ $$
 **4. Ackley Function**
 
 $$
-f_{\text{Ack}}(x) = -20 \exp\left(-0.2 \sqrt{\frac{1}{n} \sum_{i=1}^{n} x_i^2}\right) - \exp\left(\frac{1}{n} \sum_{i=1}^{n} \cos(2\pi x_i)\right) + 20 + e
+f_{\text{Ack}}(x) = -20 \exp\left(-0.2 \sqrt{\frac{1}{n} \sum x_i^2}\right) - \exp\left(\frac{1}{n} \sum \cos(2\pi x_i)\right) + 20 + e
 $$
 
 
@@ -227,6 +227,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
