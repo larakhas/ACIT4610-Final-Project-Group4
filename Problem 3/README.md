@@ -39,7 +39,7 @@ data/OR-Library/mknap2.txt         # contains all WEING/WEISH instances
 data/PisingerHard/knapPI_11_50_1000.csv
 ```
 
----
+
 
 ## 2. Loading the Instances
 
@@ -87,7 +87,7 @@ sol, val = ba.optimize()
 print("Pisinger instance:", val)
 ```
 
----
+
 
 ## 4. Greedy Baseline
 
@@ -96,7 +96,7 @@ print("Greedy WEING1:", greedy_baseline(or_instances[0]))
 print("Greedy Pisinger:", greedy_baseline(pisinger_instance))
 ```
 
----
+
 
 ## 5. 10-Run Statistical Evaluation
 
@@ -111,7 +111,7 @@ stats = runner.run_multiple_seeds(
 print("10-run statistics:", stats)
 ```
 
----
+
 
 ## 6. Convergence Plot
 
