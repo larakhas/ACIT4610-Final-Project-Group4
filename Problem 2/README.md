@@ -51,103 +51,93 @@ $$
 
 ## Dimensions Tested
 
-Each function is evaluated in:
+Each benchmark function is tested in three different dimensions:
 
-- \( n = 2 \)
-- \( n = 10 \)
+- \( n = 2 \)  
+- \( n = 10 \)  
 - \( n = 30 \)
 
-Each configuration is run **30 independent times**.
+For every dimension, the experiment is repeated **30 independent times** to ensure reliable statistics.
 
 ---
 
 ## PSO Configuration (gbest)
 
-- Inertia weight: \( w = 0.7 \)
-- Cognitive coefficient: \( c_1 = 1.5 \)
-- Social coefficient: \( c_2 = 1.5 \)
+The global-best PSO variant (gbest) is used with the following settings:
+
+- Inertia weight: \( w = 0.7 \)  
+- Cognitive component: \( c_1 = 1.5 \)  
+- Social component: \( c_2 = 1.5 \)
 
 **Swarm size**
-- 30 particles for \( n = 2 \) and \( n = 10 \)
+- 30 particles for \( n = 2 \) and \( n = 10 \)  
 - 50 particles for \( n = 30 \)
 
-**Runtime settings**
-- Max iterations: 300
-- Max evaluations: 30 000
-- Initial velocities: 10–20% of variable range
+**Runtime parameters**
+- Maximum iterations: 300  
+- Maximum evaluations: 30,000  
+- Initial velocities: 10–20% of the search range  
 - Velocity clamp:
+
 $$|v_i| \le 0.5(upper_i - lower_i)$$
 
+**Stopping criteria**
+- The evaluation budget is exhausted  
+- Early stopping if the fitness drops below a predefined threshold  
 
-**Stopping conditions**
-- Evaluation budget reached
-- Early stop when fitness < threshold
-
-All experiments are reproducible using fixed random seeds.
+All runs use fixed random seeds to ensure reproducibility.
 
 ---
 
-
 ## Local-Best PSO (lbest)
 
-A local-best PSO variant is also implemented:
+A local-best version of PSO is also implemented for comparison.  
+This variant uses a **ring topology**, where each particle considers:
 
-- Ring topology  
-- Each particle considers:
-  - Left neighbor  
-  - Itself  
-  - Right neighbor  
+- Its left neighbor  
+- Itself  
+- Its right neighbor  
 
-The same parameters as gbest are used (\(w, c_1, c_2\), swarm size, etc.).  
-This allows comparison of **exploration vs. exploitation** behavior between gbest and lbest.
+The same hyperparameters as gbest are used.  
+This setup makes it possible to study the balance between **exploration** (lbest) and **exploitation** (gbest).
 
 ---
 
 ## Hybrid PSO + Nelder–Mead
 
-To improve final accuracy, a hybrid approach is implemented:
+To improve solution accuracy, a hybrid approach is applied:
 
-1. Run PSO (gbest) normally.
-2. Take the best global position found by PSO.
-3. Use this as the starting point for **Nelder–Mead** local search (gradient-free):
-   - Up to 200 iterations.
-4. Replace the PSO best solution if Nelder–Mead finds an improvement.
+1. Run standard PSO (gbest).  
+2. Take the final gbest solution.  
+3. Use it as the starting point for a **Nelder–Mead** local search (up to 200 iterations).  
+4. If Nelder–Mead finds a better solution, it replaces the PSO result.
 
-This hybrid scheme is especially beneficial for difficult, multimodal landscapes.
+This hybrid strategy is especially effective for difficult multimodal problems.
 
 ---
 
-## What Is Recorded (Per Assignment Requirements)
+## Recorded Data
 
-For **every** combination of:
+For each run (function × dimension × repetition), the following are stored:
 
-- Function  
-- Dimension  
-- Run (out of 30)
-
-The following is stored:
-
-- Best fitness per iteration (gbest history)  
+- Best fitness value per iteration  
 - Final best fitness  
 - Final best position  
-- Number of evaluations used  
+- Total number of evaluations  
 
-Aggregated over 30 runs, the following statistics are reported:
+Across 30 runs, the following summary statistics are reported:
 
 - Mean  
 - Median  
-- Best  
-- Worst  
+- Best and worst results  
 - Standard deviation  
-- Success rate (based on a chosen threshold)
+- Success rate (relative to a target threshold)
 
 ---
 
 ## Parameter Study (w, c₁, c₂)
 
-A parameter study is performed on \( n = 10 \) for all benchmark functions.
-
-### Tested configurations
+A parameter analysis is performed for \( n = 10 \), testing four settings:
 
 | Setting            | \(w\) | \(c_1\) | \(c_2\) |
 |--------------------|------:|--------:|--------:|
@@ -156,56 +146,55 @@ A parameter study is performed on \( n = 10 \) for all benchmark functions.
 | more_exploration   | 0.7   | 2.0     | 2.0     |
 | more_exploitation  | 0.4   | 2.5     | 2.5     |
 
-A `DataFrame` summarizing results across these configurations is generated in the notebook.
+A summary DataFrame of these results is automatically generated.
 
 ---
 
 ## gbest vs lbest Comparison
 
-An example comparison is performed on **Rastrigin, \( n = 10 \)**.
+A direct comparison between gbest and lbest is performed on the **10-dimensional Rastrigin function**.
 
-For both topologies (gbest and lbest), the following are reported:
+The recorded metrics include:
 
 - Mean final fitness  
 - Best final fitness  
 
-Typical behavior:
+In general:
 
-- **gbest** converges faster.  
-- **lbest** tends to be more robust on highly multimodal landscapes.
+- **gbest** converges faster  
+- **lbest** is more robust on highly multimodal landscapes  
 
 ---
 
 ## Visualizations
 
-The notebook generates several plots, including:
+The notebook produces several visual plots:
 
-- Convergence plot for a single run (fitness vs. iterations)  
-- Average convergence plot over 30 runs  
-- Boxplots of final fitness for dimensions \( n = 2, 10, 30 \)  
-- Pre-/post-hybrid (PSO vs. PSO + Nelder–Mead) comparison  
+- Convergence curves (single run + average across 30 runs)  
+- Boxplots for dimensions 2, 10, and 30  
+- Comparison before/after applying Nelder–Mead  
 
-All fitness plots are shown on a **logarithmic scale** (log10) for clarity.
+All fitness plots are displayed on a **logarithmic scale** for clarity.
 
 ---
 
 ## How to Run
 
-1. Open `problem2.ipynb`.  
-2. Click **Run All** to execute all cells.  
-3. All experiments, statistics, and plots are generated automatically.
+1. Open `problem2.ipynb`  
+2. Click **Run All**  
+3. All experiments, statistics, and visualizations will be generated automatically  
 
 ---
 
 ## Requirements
 
-Install the required libraries:
+Install dependencies:
 
 ```bash
 pip install numpy matplotlib pandas scipy
-
 ```
-## The implementation uses:
+
+## Libraries used:
 
 - numpy
 
@@ -226,6 +215,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
