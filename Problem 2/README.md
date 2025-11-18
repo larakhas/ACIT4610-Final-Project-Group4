@@ -1,4 +1,4 @@
-## Optimize Classic Benchmark Functions using Particle Swarm Optimization (PSO)
+# Optimize Classic Benchmark Functions using Particle Swarm Optimization (PSO)
 
 This repository contains a full implementation of Particle Swarm Optimization (PSO) for minimizing several standard continuous benchmark functions. The notebook includes:
 
@@ -226,6 +226,7 @@ pip install numpy matplotlib pandas scipy
 - All runs use fixed random seeds.
 
 - This ensures consistent and repeatable results across executions.
+
 
 
 
