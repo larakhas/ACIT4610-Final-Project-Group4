@@ -30,7 +30,7 @@ This satisfies the assignment requirement to implement, train, evaluate, compare
 ## How to Run
 
 ### 1. Open the Notebook
-Open the file **problem5.ipynb** notebook.
+Open the **problem5.ipynb** notebook.
 
 ### 2. Run All Cells
 Run the notebook by choosing “Run All,” which executes all cells sequentially.
