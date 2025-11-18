@@ -1,55 +1,129 @@
-# 🐝 Bees Algorithm – 0/1 Multiple Knapsack Problem
+# Problem 3: Bees Algorithm for 0-1 Knapsack
 
-## 1. Overview
+## Running the Bees Algorithm on All Instances
 
-This project implements the **Bees Algorithm (BA)** to solve the **0–1 Multiple Knapsack Problem (MKP)** with:
+This project evaluates the Bees Algorithm (BA) on a set of benchmark 0/1 knapsack instances from the OR-Library and the Pisinger Hard dataset.  
+The following sections describe the instances used and explain how to run the solver on each of them.
 
-- Scout bees for global exploration  
-- Elite and selected sites for local search  
-- Shrinking neighborhoods  
-- Stagnation-based site abandonment  
-- A **repair operator** to enforce feasibility  
-- A **greedy baseline heuristic** for comparison  
 
-The implementation runs the algorithm on **OR-Library** MKP instances and one **Pisinger** “hard” instance, and produces:
 
-- Convergence plots (iteration vs best value)  
-- Statistics over 10 runs per instance  
-- Summary table with baseline comparison  
+## 1. Instances Used
+
+### 1.1 OR-Library Instances  
+We selected six classical 0/1 knapsack instances from the OR-Library benchmark set.  
+They are grouped by size as follows:
+
+#### Smallest Instances (fewest objects)
+- **WEING1.DAT** — 2 knapsacks, 28 objects  
+- **WEING4.DAT** — 2 knapsacks, 28 objects  
+
+#### Medium Instance (middle range)
+- **WEISH06.DAT** — 5 knapsacks, 40 objects  
+- **WEISH07.DAT** — 5 knapsacks, 40 objects  
+
+
+
+#### Largest Instances (most objects)
+- **WEISH26.DAT** — 5 knapsacks, 90 objects  
+- **WEISH30.DAT** — 5 knapsacks, 90 objects  
+
+### 1.2 Pisinger Hard Instance
+Additionally, we include one Pisinger “hard” knapsack instance for comparison:
+
+- **knapPI_11_50_1000_19** — 1 knapsack, 50 objects
+
+These files are placed in:
+
+```
+data/OR-Library/mknap2.txt         # contains all WEING/WEISH instances
+data/PisingerHard/knapPI_11_50_1000.csv
+```
 
 ---
 
-## 2. Instances Used
+## 2. Loading the Instances
 
-### Smallest Instances (fewest objects)
-- `WEING3.DAT`: 2 knapsacks, 28 objects  
-- `WEING4.DAT`: 2 knapsacks, 28 objects  
+### 2.1 Load OR-Library instances
+```python
+or_instances = loader.load_or_library(
+    "data/OR-Library/mknap2.txt",
+    ['WEING1', 'WEING4', 'WEISH06', 'WEISH07', 'WEISH26', 'WEISH30']
+)
+```
 
-### Medium Instances (middle range)
-- `WEISH14.DAT`: 5 knapsacks, 50 objects  
-- `WEISH16.DAT`: 5 knapsacks, 50 objects  
+### 2.2 Load Pisinger Hard instance
+```python
+pisinger_instance = loader.load_pisinger(
+    "data/PisingerHard/knapPI_11_50_1000.csv",
+    "knapPI_11_50_1000_19"
+)
 
-### Largest Instances (most objects)
-- `WEISH28.DAT`: 5 knapsacks, 100 objects  
-- `WEISH29.DAT`: 5 knapsacks, 100 objects  
+```
 
-### Pisinger “hard” instance
-- `knapPI_11_50_1000_21` (from `knapPI_11_50_1000.csv`)
 
-These are all loaded and run inside the notebook.
+
+## 3. Running Bees Algorithm
+
+### 3.1 Run BA on a single OR-Library instance
+```python
+ba = BeesAlgorithmStandard(instance=or_instances[0])
+best_solution, best_value = ba.optimize()
+
+print("WEING1 – Best value:", best_value)
+```
+
+### 3.2 Run BA on all OR-Library instances
+```python
+for inst in or_instances:
+    ba = BeesAlgorithmStandard(instance=inst)
+    sol, val = ba.optimize()
+    print(inst.name, val)
+```
+
+### 3.3 Run BA on the Pisinger instance
+```python
+ba = BeesAlgorithmStandard(instance=pisinger_instance)
+sol, val = ba.optimize()
+print("Pisinger instance:", val)
+```
 
 ---
 
-## 3. Requirements
+## 4. Greedy Baseline
 
-### 3.1 Software
+```python
+print("Greedy WEING1:", greedy_baseline(or_instances[0]))
+print("Greedy Pisinger:", greedy_baseline(pisinger_instance))
+```
 
-- Python **3.9+** (3.10/3.11 also fine)  
-- Jupyter Notebook / JupyterLab / VS Code with Jupyter extension  
+---
 
-### 3.2 Python packages
+## 5. 10-Run Statistical Evaluation
 
-Install required libraries:
+```python
+runner = ExperimentRunner(or_instances)
 
-```bash
-pip install numpy pandas matplotlib
+stats = runner.run_multiple_seeds(
+    instance=or_instances[0],   # e.g., WEING1
+    num_runs=10
+)
+
+print("10-run statistics:", stats)
+```
+
+---
+
+## 6. Convergence Plot
+
+After running BA:
+
+```python
+ba.plot_convergence()
+```
+
+
+
+
+
+
+
