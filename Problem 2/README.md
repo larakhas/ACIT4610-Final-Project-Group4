@@ -7,148 +7,105 @@ This repository contains a full implementation of Particle Swarm Optimization (P
 - Hybrid PSO + Nelder–Mead  
 - Parameter studies  
 - Statistical evaluation over 30 independent runs  
-
----
-
 ## Benchmark Functions
 
-### 1. Sphere
+### **1. Sphere Function (convex, easy)**
 
-**Formula**
-
-\[
+$$
 f_{\text{Sphere}}(x) = \sum_{i=1}^{n} x_i^2
-\]
+$$
 
-**Global minimum**
-
-\[
-x^\* = 0,\quad f^\* = 0.
-\]
-
-**Bounds**
-
-\[
-x_i \in [-5.12,\; 5.12].
-\]
+- **Global minimum:** \( x^\* = 0,\; f^\* = 0 \)
+- **Bounds:** \( x_i \in [-5.12,\; 5.12] \)
 
 ---
 
-### 2. Rosenbrock
+### **2. Rosenbrock Function (valley, nonconvex)**
 
-**Formula**
+$$
+f_{\text{Rosen}}(x) =
+\sum_{i=1}^{n-1} \left[
+100(x_{i+1} - x_i^2)^2 + (1 - x_i)^2
+\right]
+$$
 
-\[
-f_{\text{Ros}}(x) = \sum_{i=1}^{n-1} \left[ 100(x_{i+1} - x_i^2)^2 + (1 - x_i)^2 \right]
-\]
-
-**Global minimum**
-
-\[
-x^\* = 1,\quad f^\* = 0.
-\]
-
-**Bounds**
-
-\[
-x_i \in [-5,\; 10].
-\]
+- **Global minimum:** \( x^\* = 1,\; f^\* = 0 \)
+- **Bounds:** \( x_i \in [-5,\; 10] \)
 
 ---
 
-### 3. Rastrigin
+### **3. Rastrigin Function (multimodal, many local minima)**
 
-**Formula**
+$$
+f_{\text{Rast}}(x) =
+10n + \sum_{i=1}^{n} \left[
+x_i^2 - 10\cos(2\pi x_i)
+\right]
+$$
 
-\[
-f_{\text{Rast}}(x) = 10n + \sum_{i=1}^{n} \left[ x_i^2 - 10\cos(2\pi x_i) \right]
-\]
-
-**Global minimum**
-
-\[
-x^\* = 0,\quad f^\* = 0.
-\]
-
-**Bounds**
-
-\[
-x_i \in [-5.12,\; 5.12].
-\]
+- **Global minimum:** \( x^\* = 0,\; f^\* = 0 \)
+- **Bounds:** \( x_i \in [-5.12,\; 5.12] \)
 
 ---
 
-### 4. Ackley
+### **4. Ackley Function (multimodal, bowl-shaped)**
 
-**Formula**
-
-\[
+$$
 f_{\text{Ack}}(x) =
--20 \exp\left( -0.2 \sqrt{\frac{1}{n} \sum_{i=1}^{n} x_i^2} \right)
-- \exp\left( \frac{1}{n} \sum_{i=1}^{n} \cos(2\pi x_i) \right)
+-20 \exp\left(
+    -0.2 \sqrt{\frac{1}{n}\sum_{i=1}^{n} x_i^2}
+\right)
+-
+\exp\left(
+    \frac{1}{n}\sum_{i=1}^{n}\cos(2\pi x_i)
+\right)
 + 20 + e
-\]
+$$
 
-**Global minimum**
-
-\[
-x^\* = 0,\quad f^\* = 0.
-\]
-
-**Bounds**
-
-\[
-x_i \in [-32.768,\; 32.768].
-\]
+- **Global minimum:** \( x^\* = 0,\; f^\* = 0 \)
+- **Bounds:** \( x_i \in [-32.768,\; 32.768] \)
 
 ---
 
 ## Dimensions Tested
 
-Each benchmark function is evaluated in the following dimensions:
+Each function is evaluated in:
 
 - \( n = 2 \)
 - \( n = 10 \)
 - \( n = 30 \)
 
-For each function × dimension combination, the algorithm is run **30 independent times**.
+Each configuration is run **30 independent times**.
 
 ---
 
 ## PSO Configuration (gbest)
 
-Global-best PSO (gbest) uses the following configuration:
-
-- Inertia weight: \( w = 0.7 \)  
-- Cognitive coefficient: \( c_1 = 1.5 \)  
-- Social coefficient: \( c_2 = 1.5 \)  
+- Inertia weight: \( w = 0.7 \)
+- Cognitive coefficient: \( c_1 = 1.5 \)
+- Social coefficient: \( c_2 = 1.5 \)
 
 **Swarm size**
+- 30 particles for \( n = 2 \) and \( n = 10 \)
+- 50 particles for \( n = 30 \)
 
-- 30 particles for \( n = 2 \) and \( n = 10 \)  
-- 50 particles for \( n = 30 \)  
-
-**Stopping / runtime limits**
-
-- Max iterations: 300  
-- Max evaluations: 30 000  
-
-**Velocity settings**
-
-- Initial velocities: 10–20% of the variable range  
-- Velocity clamp:  
-  \[
+**Runtime settings**
+- Max iterations: 300
+- Max evaluations: 30 000
+- Initial velocities: 10–20% of variable range
+- Velocity clamp:
+  $$
   |v_i| \le 0.5 \cdot (\text{upper}_i - \text{lower}_i)
-  \]
+  $$
 
-**Stopping criteria**
+**Stopping conditions**
+- Evaluation budget reached
+- Early stop when fitness < threshold
 
-- Evaluation budget reached, **or**  
-- Early stop when function value < given threshold  
-
-All experiments are fully reproducible using fixed random seeds.
+All experiments are reproducible using fixed random seeds.
 
 ---
+
 
 ## Local-Best PSO (lbest)
 
@@ -266,7 +223,7 @@ Install the required libraries:
 ```bash
 pip install numpy matplotlib pandas scipy
 
-
+```
 ## The implementation uses:
 
 - numpy
@@ -289,6 +246,5 @@ pip install numpy matplotlib pandas scipy
 
 - This ensures consistent and repeatable results across executions.
 
-```bash
-pip install numpy matplotlib pandas scipy
+
 
