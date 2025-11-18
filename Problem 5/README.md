@@ -36,7 +36,7 @@ This satisfies the assignment requirement to implement, train, evaluate, compare
 Open the file **problem5.ipynb** notebook.
 
 ### 2. Run All Cells
-Click **Run All** to execute the full pipeline:
+Run the notebook by choosing “Run All,” which executes all cells sequentially.
 - environment setup  
 - training (Q-learning, SARSA, Double Q-learning)  
 - evaluation  
