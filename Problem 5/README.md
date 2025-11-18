@@ -4,7 +4,7 @@ This project implements Q-learning, SARSA, and Double Q-Learning to solve a real
 The code trains the agent, evaluates it, compares it to random and heuristic baselines, and produces learning curves and performance plots.  
 Both 6×6 and 8×8 FrozenLake environments are used, with support for linear and exponential epsilon decay.
 
----
+
 
 ## What the Code Does
 - Creates FrozenLake-v1 environments (6×6 and 8×8)
@@ -28,7 +28,7 @@ Both 6×6 and 8×8 FrozenLake environments are used, with support for linear and
 
 This satisfies the assignment requirement to implement, train, evaluate, compare, and visualize reinforcement learning algorithms for a real-world problem.
 
----
+
 
 ## How to Run
 
@@ -37,17 +37,12 @@ Open the file **problem5.ipynb** notebook.
 
 ### 2. Run All Cells
 Run the notebook by choosing “Run All,” which executes all cells sequentially.
-- environment setup  
-- training (Q-learning, SARSA, Double Q-learning)  
-- evaluation  
-- plots and comparisons  
 
----
 
 ## Python Version
 Tested with **Python 3.12.4**
 
----
+
 
 ## Libraries Used
 - matplotlib  
@@ -57,7 +52,7 @@ Tested with **Python 3.12.4**
 - gymnasium  
 - itertools (built-in)
 
----
+
 
 ## How to Install Required Libraries
 
