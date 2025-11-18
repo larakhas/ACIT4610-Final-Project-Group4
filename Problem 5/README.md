@@ -1,9 +1,6 @@
 # Problem 5 – Solving a Real-World Task Using Reinforcement Learning
 
-This project implements Q-learning, SARSA, and Double Q-Learning to solve a real-world inspired problem: a warehouse robot navigating a slippery floor (FrozenLake-v1).  
-The code trains the agent, evaluates it, compares it to random and heuristic baselines, and produces learning curves and performance plots.  
-Both 6×6 and 8×8 FrozenLake environments are used, with support for linear and exponential epsilon decay.
-
+This project implements Q-learning, SARSA, and Double Q-learning to solve a real-world problem: a warehouse robot that must navigate a slippery floor (FrozenLake-v1). The code trains and evaluates the agent, compares the results to both random and heuristic baselines, and generates learning curves and performance graphs. The project supports both 6×6 and 8×8 variants of the FrozenLake environment, as well as both linear and exponential epsilon decay.
 
 
 ## What the Code Does
